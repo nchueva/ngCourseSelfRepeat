@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDrawer } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -6,19 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'ngPracticeCourse';
+  public title = 'ngPracticeCourse';
+  public drawerSidenav: MatDrawer;
 
-  public imgSrc = './assets/images/moss.jpg';
-  public imgWidth = 100;
-
-  public getImgWidth( image: HTMLImageElement): void {
-    console.log(image);
+  public setSidenav(drawer: MatDrawer) {
+    this.drawerSidenav = drawer;
   }
-
-  public search(imgWidth: number, {value}: HTMLInputElement) {
-    console.log(imgWidth, value);
-  }
-
 
   public constructor() {}
 }

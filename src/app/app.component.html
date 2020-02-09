@@ -1,1 +1,2 @@
-<app-header></app-header>
+<app-header [t]="title" [d]="drawerSidenav"></app-header>
+<app-sidebar (setSidenavControl)="setSidenav($event)"></app-sidebar>
