@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDrawer } from '@angular/material';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,23 @@ import { MatDrawer } from '@angular/material';
 export class HeaderComponent {
 
   @Input()
-  public t: string;
+  public set t(value: string) {
+    if (!value) {
+      console.log('!value');
+      return;
+    }
+    this.titleContent = this.domSanitizer.bypassSecurityTrustHtml(`<span style='color: red'>${value}</span>`);
+    console.log(this.titleContent);
+  }
+
+  public titleContent: SafeHtml;
 
   @Input()
   public d: MatDrawer;
 
-  constructor() { }
+  constructor(
+    private domSanitizer: DomSanitizer
+  ) { }
 
   public toggleSidenav() {
     this.d.toggle();
