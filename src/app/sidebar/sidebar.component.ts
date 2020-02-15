@@ -1,4 +1,14 @@
-import { Component, EventEmitter, OnInit, ViewChild, Output, OnChanges, SimpleChanges, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, DoCheck } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  ViewChild,
+  Output,
+  AfterViewInit,
+  ContentChild,
+  ViewContainerRef,
+  TemplateRef,
+  ElementRef } from '@angular/core';
 import { MatDrawer } from '@angular/material';
 
 @Component({
@@ -6,7 +16,7 @@ import { MatDrawer } from '@angular/material';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.sass']
 })
-export class SidebarComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterViewInit, AfterContentChecked, AfterViewChecked {
+export class SidebarComponent implements OnInit, AfterViewInit {
 
   @Output()
   public setSidenavControl: EventEmitter<MatDrawer> = new EventEmitter<MatDrawer>(true);
@@ -14,39 +24,32 @@ export class SidebarComponent implements OnChanges, OnInit, DoCheck, AfterConten
   @ViewChild('drawer', { static: true })
   public drawer!: MatDrawer;
 
-  constructor() {
+  @ViewChild('sampleView', { read: ViewContainerRef, static: false })
+  public myView: ViewContainerRef;
+
+  @ContentChild('sampleContent', { static: false })
+  public myContent: TemplateRef<any>;
+
+  constructor(private el: ElementRef) {
     console.log('constructor');
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
 
   ngOnInit() {
     this.setSidenavControl.emit(this.drawer);
-    console.log('ngOnInit');
-  }
-
-  ngDoCheck(): void {
-    console.log('ngDoCheck');
-
-  };
-
-
-  ngAfterContentInit(): void {
-    console.log('ngAfterContentInit');
-  }
-
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked');
+    console.log(this.el);
   }
 
   ngAfterViewInit(): void {
-    console.log('AfterViewInit');
+
+    Promise.resolve().then(() => {
+      this.myView.createEmbeddedView(this.myContent, { $implicit: 'My title', subtitle: 'My subtitle' });
+    }
+    );
   }
 
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked');
-  }
+
+
+
 
 }

@@ -12,7 +12,7 @@ import { MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule } from
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +21,7 @@ import { MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule } from
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
 
   ],
   providers: [],
