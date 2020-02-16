@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import {MatSidenavModule, MatDrawer} from '@angular/material/sidenav';
+import { MatDrawer} from '@angular/material/sidenav';
 import { products$, IProduct } from './mock';
 import { Observable } from 'rxjs';
 
@@ -14,7 +14,9 @@ export class AppComponent implements OnInit {
   public constructor() { }
   public title = 'ngPracticeCourse';
   public drawerSidenav: MatDrawer;
-  public products: IProduct[] = [];
+  public products$: Observable<IProduct[]> = products$;
+
+//  public products: IProduct[] = [];
 
   public account = {
     name: 'Ihor',
@@ -22,17 +24,16 @@ export class AppComponent implements OnInit {
   };
 
 
-  public products$: Observable<IProduct[]> = products$;
-
   public setSidenav(drawer: MatDrawer) {
     this.drawerSidenav = drawer;
   }
-  public ngOnInit(): void {
-    this.products$.subscribe( (products) => {
-      console.log(products);
 
-      this.products = products;
-    } );
-  }
+   public ngOnInit(): void {
+  //   this.products$.subscribe( (products) => {
+  //     console.log(products);
+
+  //     this.products = products;
+  //   } );
+   }
 
 }

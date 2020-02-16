@@ -1,10 +1,16 @@
 <app-header [t]="title" [d]="drawerSidenav"></app-header>
 <app-sidebar (setSidenavControl)="setSidenav($event)">
   <ng-template #sampleContent let-title let-description="subtitle">
-
-    <pre>
-      {{products | json}}
-    </pre>
-
+    <ng-container *ngIf="products$ | async as products; else loader">
+      <div *ngFor="let product of products">
+        {{product.title}}
+      </div>
+    </ng-container>
   </ng-template>
 </app-sidebar>
+
+<ng-template #loader>
+  <div class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
