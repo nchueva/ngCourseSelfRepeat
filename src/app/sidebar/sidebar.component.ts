@@ -24,10 +24,10 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   @ViewChild('drawer', { static: true })
   public drawer!: MatDrawer;
 
-  @ViewChild('sampleView', { read: ViewContainerRef, static: false })
+  @ViewChild('sampleView', { read: ViewContainerRef })
   public myView: ViewContainerRef;
 
-  @ContentChild('sampleContent', { static: false })
+  @ContentChild('sampleContent')
   public myContent: TemplateRef<any>;
 
   constructor(private el: ElementRef) {
