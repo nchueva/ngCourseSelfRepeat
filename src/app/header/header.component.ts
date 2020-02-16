@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {MatDrawer} from '@angular/material/sidenav';
-import {MatToolbar} from '@angular/material/toolbar';
+import { MatDrawer } from '@angular/material/sidenav';
+import { MatToolbar } from '@angular/material/toolbar';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -16,14 +16,14 @@ export class HeaderComponent {
       console.log('!value');
       return;
     }
-    this.titleContent = this.domSanitizer.bypassSecurityTrustHtml(`<span style='color: red'>${value}</span>`);
+    this.titleContent = `<span style='color: red'>${value}</span>`;
     console.log(this.titleContent);
   }
 
-  public titleContent: SafeHtml;
-
   @Input()
   public d: MatDrawer;
+
+  public titleContent = '';
 
   constructor(
     private domSanitizer: DomSanitizer
@@ -32,5 +32,4 @@ export class HeaderComponent {
   public toggleSidenav() {
     this.d.toggle();
   }
-
 }

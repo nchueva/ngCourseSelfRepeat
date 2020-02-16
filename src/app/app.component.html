@@ -3,11 +3,11 @@
   <ng-template #sampleContent let-title let-description="subtitle">
 
     <mat-form-field appearance="fill">
-      <input matInput placeholder="Input" (input)="search($event)">
+      <input matInput placeholder="Input" #searchEl>
     </mat-form-field>
 
     <mat-grid-list *ngIf="products$ | async as products; else loader" cols="4" rowHeight="500">
-      <mat-grid-tile *ngFor="let product of products$ |  async | productsFilter:searchText; let isOdd = odd">
+      <mat-grid-tile *ngFor="let product of products$ |  async | productsFilter:searchEl.value; let isOdd = odd">
         <app-product-card [product]="product" [isOdd]="isOdd">
         </app-product-card>
       </mat-grid-tile>

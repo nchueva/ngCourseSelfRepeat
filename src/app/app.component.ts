@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public title = 'ngPracticeCourse';
   public drawerSidenav: MatDrawer;
   public products$: Observable<IProduct[]> = products$;
-  public searchText = '';
+ // public searchText = '';
 
 //  public products: IProduct[] = [];
 
@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
   //   } );
    }
 
-   search({target}: Event) {
-    this.searchText = (target as HTMLInputElement).value;
-   }
+  //  search({target}: Event) {
+  //   this.searchText = (target as HTMLInputElement).value;
+  //  }
 
 }

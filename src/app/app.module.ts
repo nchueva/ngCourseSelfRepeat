@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
+import { SanitarPipe } from './header/sanitar.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProductsFilterPipe } from './products-filter.pipe';
     ProductCardComponent,
     ProductCardComponent,
     ProductsFilterPipe,
+    SanitarPipe,
   ],
   imports: [
     BrowserModule,
