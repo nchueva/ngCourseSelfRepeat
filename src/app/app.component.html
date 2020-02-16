@@ -1,11 +1,18 @@
 <app-header [t]="title" [d]="drawerSidenav"></app-header>
 <app-sidebar (setSidenavControl)="setSidenav($event)">
   <ng-template #sampleContent let-title let-description="subtitle">
-    <ng-container *ngIf="products$ | async as products; else loader">
-      <div *ngFor="let product of products">
-        {{product.title}}
-      </div>
-    </ng-container>
+
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Input" (input)="search($event)">
+    </mat-form-field>
+
+    <mat-grid-list *ngIf="products$ | async as products; else loader" cols="4" rowHeight="500">
+      <mat-grid-tile *ngFor="let product of products$ |  async | productsFilter:searchText; let isOdd = odd">
+        <app-product-card [product]="product" [isOdd]="isOdd">
+        </app-product-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
   </ng-template>
 </app-sidebar>
 
