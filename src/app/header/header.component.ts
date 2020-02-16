@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatDrawer } from '@angular/material';
+import {MatDrawer} from '@angular/material/sidenav';
+import {MatToolbar} from '@angular/material/toolbar';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({

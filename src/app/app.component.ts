@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { MatDrawer } from '@angular/material';
+import {MatSidenavModule, MatDrawer} from '@angular/material/sidenav';
 import { products$, IProduct } from './mock';
 import { Observable } from 'rxjs';
 

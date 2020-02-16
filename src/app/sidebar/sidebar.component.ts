@@ -9,7 +9,7 @@ import {
   ViewContainerRef,
   TemplateRef,
   ElementRef } from '@angular/core';
-import { MatDrawer } from '@angular/material';
+import {MatDrawer} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sidebar',
