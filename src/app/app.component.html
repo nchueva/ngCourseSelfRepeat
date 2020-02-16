@@ -1,8 +1,10 @@
 <app-header [t]="title" [d]="drawerSidenav"></app-header>
 <app-sidebar (setSidenavControl)="setSidenav($event)">
   <ng-template #sampleContent let-title let-description="subtitle">
-    <h1>{{ title }}</h1>
-    <h2>Selector 2</h2>
-  <h3 class="selector">{{ description }}</h3>
+
+    <pre>
+      {{products | json}}
+    </pre>
+
   </ng-template>
 </app-sidebar>
