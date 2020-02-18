@@ -2,17 +2,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IProduct } from './mock';
 
 @Pipe({
-  name: 'productsFilter'
+  name: 'productsFilter',
+  pure: false,
 })
+
 export class ProductsFilterPipe implements PipeTransform {
 
-  transform(products: IProduct[], searchText: string): IProduct[] {
+  transform(products: IProduct[], searchText: string, onlyFavorites: boolean): IProduct[] {
+    const result: IProduct[] = products;
 
-    if (!searchText) {
-      return products;
+    if(onlyFavorites) {
+      return result.filter((product: IProduct) => product.isFavorite )
     }
 
-    return products.filter( (product: IProduct) => {
+    if (!searchText) {
+      return result;
+    }
+
+    return result.filter( (product: IProduct) => {
       return `${product.title} ${product.price}`.toLowerCase().includes(searchText);
     })
   }

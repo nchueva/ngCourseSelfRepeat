@@ -6,8 +6,10 @@
       <input matInput placeholder="Input" #searchEl>
     </mat-form-field>
 
+    <mat-checkbox (change)="toggleOnlyFavorites($event)" color="primary">Show favorite!</mat-checkbox>
+
     <mat-grid-list *ngIf="products$ | async as products; else loader" cols="4" rowHeight="500">
-      <mat-grid-tile *ngFor="let product of products$ |  async | productsFilter:searchEl.value; let isOdd = odd">
+      <mat-grid-tile *ngFor="let product of products$ |  async | productsFilter:searchEl.value:onlyFavorites; let isOdd = odd">
         <app-product-card [product]="product" [isOdd]="isOdd">
         </app-product-card>
       </mat-grid-tile>

@@ -16,4 +16,8 @@ public isOdd: boolean;
 
 public constructor() {};
 
+public toggleFavorite() {
+  this.product.isFavorite = !this.product.isFavorite;
+}
+
 }
