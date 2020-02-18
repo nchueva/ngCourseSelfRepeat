@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { MatToolbar } from '@angular/material/toolbar';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +22,12 @@ export class HeaderComponent {
   @Input()
   public d: MatDrawer;
 
+
+  public rates = [
+    {value: 24, currency: 'EUR'},
+    {value: 20, currency: 'USD'},
+    {value: 0.4, currency: 'RUB'},
+  ]
   public titleContent = '';
 
   constructor(

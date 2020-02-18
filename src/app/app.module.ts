@@ -9,6 +9,8 @@ import { SharedModule } from './shared/shared.module';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 import { SanitarPipe } from './header/sanitar.pipe';
+import { ExchangeRateComponent } from './header/exchange-rate/exchange-rate.component';
+import { ExchangeRatesDirective } from './header/exchange-rate/exchange-rates.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SanitarPipe } from './header/sanitar.pipe';
     ProductCardComponent,
     ProductsFilterPipe,
     SanitarPipe,
+    ExchangeRateComponent,
+    ExchangeRatesDirective,
   ],
   imports: [
     BrowserModule,
