@@ -10,7 +10,7 @@ export class ExchangeRateComponent {
 
 
   @Input()
-  public rates: IExchangeRate[];
+  public myRates: IExchangeRate[];
 
   constructor() { }
 

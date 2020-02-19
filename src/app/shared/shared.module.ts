@@ -12,7 +12,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { ExchangeRateComponent } from '../header/exchange-rate/exchange-rate.component';
 
 
 @NgModule({
@@ -31,8 +30,6 @@ import { ExchangeRateComponent } from '../header/exchange-rate/exchange-rate.com
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    ExchangeRateComponent,
-
   ]
 })
 export class SharedModule { }
