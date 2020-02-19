@@ -11,6 +11,7 @@ import { ProductsFilterPipe } from './products-filter.pipe';
 import { SanitarPipe } from './header/sanitar.pipe';
 import { ExchangeRateComponent } from './header/exchange-rate/exchange-rate.component';
 import { ExchangeRatesDirective } from './header/exchange-rate/exchange-rates.directive';
+import { HiddenDirective } from './header/exchange-rate/hidden.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ExchangeRatesDirective } from './header/exchange-rate/exchange-rates.di
     SanitarPipe,
     ExchangeRateComponent,
     ExchangeRatesDirective,
+    HiddenDirective,
   ],
   imports: [
     BrowserModule,
