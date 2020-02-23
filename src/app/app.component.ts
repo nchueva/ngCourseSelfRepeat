@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { MatDrawer} from '@angular/material/sidenav';
-import { products$, IProduct } from './mock';
+import { IProduct } from './mock';
 import { Observable } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ProductsService } from './products.service';

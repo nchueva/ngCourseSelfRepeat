@@ -13,8 +13,9 @@ import { ExchangeRateComponent } from './header/exchange-rate/exchange-rate.comp
 import { ExchangeRatesDirective } from './header/exchange-rate/exchange-rates.directive';
 import { HiddenDirective } from './header/exchange-rate/hidden.directive';
 import { ProductsService } from './products.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { CardModalContentComponent } from './product-card/card-modal-content/card-modal-content.component';
+import { ModalModule } from './modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -28,21 +29,23 @@ import { environment } from 'src/environments/environment';
     ExchangeRateComponent,
     ExchangeRatesDirective,
     HiddenDirective,
+    CardModalContentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    ModalModule.forRoot(),
 
   ],
   providers: [
     ProductsService, // service needs to be declared in providers
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CustomElementRegistry,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: CustomElementRegistry,
+    //   multi: true,
+    // },
     // {
     //   provide: BASE_URL_TOKEN,  //provide: 'baseUrl',
     //   useValue: BASE_URL,       //environment.baseUrl,
