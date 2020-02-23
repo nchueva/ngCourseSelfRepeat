@@ -13,7 +13,7 @@ import { ExchangeRateComponent } from './header/exchange-rate/exchange-rate.comp
 import { ExchangeRatesDirective } from './header/exchange-rate/exchange-rates.directive';
 import { HiddenDirective } from './header/exchange-rate/hidden.directive';
 import { ProductsService } from './products.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -37,7 +37,12 @@ import { environment } from 'src/environments/environment';
 
   ],
   providers: [
-    ProductsService,
+    ProductsService, // service needs to be declared in providers
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomElementRegistry,
+      multi: true,
+    },
     // {
     //   provide: BASE_URL_TOKEN,  //provide: 'baseUrl',
     //   useValue: BASE_URL,       //environment.baseUrl,
