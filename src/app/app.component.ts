@@ -3,6 +3,7 @@ import { MatDrawer} from '@angular/material/sidenav';
 import { products$, IProduct } from './mock';
 import { Observable } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { ProductsService } from './products.service';
 
 @Component({
   selector: 'app-root',
@@ -12,41 +13,25 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 })
 export class AppComponent implements OnInit {
 
-  public constructor() { }
   public title = 'ngPracticeCourse';
   public drawerSidenav: MatDrawer;
-  public products$: Observable<IProduct[]> = products$;
+  public products$: Observable<IProduct[]> = this.productService.getProduct();
   public onlyFavorites = false;
- // public searchText = '';
 
-//  public products: IProduct[] = [];
 
-  public account = {
-    name: 'Ihor',
-    age: 33,
-  };
-
+  public constructor(private readonly productService: ProductsService) { }
 
   public setSidenav(drawer: MatDrawer) {
     this.drawerSidenav = drawer;
   }
 
    public ngOnInit(): void {
-  //   this.products$.subscribe( (products) => {
-  //     console.log(products);
-
-  //     this.products = products;
-  //   } );
+    console.log(this.productService);
    }
 
    public toggleOnlyFavorites(e: MatCheckboxChange) {
     this.onlyFavorites = e.checked;
 
    }
-
-
-  //  search({target}: Event) {
-  //   this.searchText = (target as HTMLInputElement).value;
-  //  }
 
 }
