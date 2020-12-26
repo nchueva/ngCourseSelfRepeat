@@ -44,9 +44,9 @@ export class ModalComponent implements OnInit {
     });
   }
 
-  //@HostListener('window:keyup', ['$event.keyCode'])
+  // @HostListener('window:keyup', ['$event.keyCode'])
   @HostListener('window:keyup.esc')
-  //public close(code: number = 27) {
+  // public close(code: number = 27) {
   public close() {
     // if (code !==27) {
     //   return;
